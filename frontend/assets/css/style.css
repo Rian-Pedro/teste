@@ -1,0 +1,16 @@
+a{
+    text-decoration: none;
+}
+
+.edit {
+    color: #009dff;
+}
+
+.remove {
+    color: #ff1900;
+}
+
+.erro-msg {
+    margin-left: 15px;
+    color: #ff1900;
+}

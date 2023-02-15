@@ -1,0 +1,51 @@
+<%- include('./includes/head') %>
+<%- include('./includes/nav') %>
+
+    <div class="container mt-4">
+        <h1 class="text-center">Agenda</h1>
+        <% if(!user) { %>
+            <h4 class="fw-light text-center">Faça o seu login ou crie seu cadastro</h4>
+        <% } else { %>
+            <% if(!contatos.length > 0) { %>
+                <h4 class="fw-light text-center">Crie seu contato no botão acima</h4>
+            <% } else { %>
+                <h4 class="fw-light text-center">Seus contatos estão abaixo</h4>
+            <% } %>
+        <% } %>
+    </div>
+
+    <%- include('./includes/message') %>
+
+    <% if(contatos.length > 0) { %>
+        <table class="table w-75 mx-auto">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Telefone</th>
+                <th scope="col" colspan="2">Editor/Exluir</th>
+              </tr>
+            </thead>
+            <tbody>
+
+                <% contatos.forEach(cont => { %>
+
+                    <tr>
+                        <td><%= cont.nome %></td>
+                        <td><%= cont.sobrenome %></td>
+                        <td><%= cont.email %></td>
+                        <td><%= cont.telefone %></td>
+
+                        <td><a href="/contato/index/<%= cont._id %>" class="edit">Editar</a></td>
+                        <td><a href="/contato/remove/<%= cont._id %>" class="remove">Excluir</a></td>
+
+                    </tr>
+
+                    <% }) %>
+
+            </tbody>
+          </table>
+    <% } %>
+
+<%- include('./includes/footer') %>

@@ -1,0 +1,45 @@
+<%- include('./includes/head') %>
+<%- include('./includes/nav') %>
+
+<div class="mt-4">
+    <%- include('./includes/message') %>
+</div>
+
+<% if(contato._id) { %>
+    <form class="container w-50 my-5 form-contato" action="/contato/update/<%= contato._id %>" method="post">
+<% } else { %>
+    <form class="container w-50 my-5 form-contato" action="/contato/criar" method="post">
+<% } %>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Nome</label>
+        <input type="text" value="<%= contato.nome %>" class="form-control border-dark" name="nome" >
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Sobrenome</label>
+        <input type="text" value="<%= contato.sobrenome %>" class="form-control border-dark" name="sobrenome">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email</label>
+        <input type="text" value="<%= contato.email %>" class="form-control border-dark" name="email">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Telefone</label>
+        <input type="text" value="<%= contato.telefone %>" class="form-control border-dark" name="telefone">
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-dark mt-4" type="submit">
+            <% if(contato._id) { %>
+                Editar
+            <% } else { %>
+                Criar
+            <% } %>
+        </button>
+      </div>
+
+</form>
+
+<%- include('./includes/footer') %>

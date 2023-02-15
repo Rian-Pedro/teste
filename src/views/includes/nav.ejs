@@ -1,0 +1,35 @@
+<nav class="navbar bg-dark navbar-expand" data-bs-theme="dark">
+  <div class="container-fluid">
+
+    <a class="navbar-brand fw-bold" href="/">Agenda</a>
+
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+
+      <ul class="navbar-nav" >
+
+        <% if(user) { %>
+          
+          <li class="nav-item">
+            <a class="nav-link text-light mx-auto" aria-current="page" href="/contato/index">Criar Contato</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-light mx-auto" aria-current="page" href="/login/logout">Sair</a>
+          </li>
+
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link text-light mx-auto" aria-current="page" href="/login/index">Entrar</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link text-light mx-auto" aria-current="page" href="/login/registro">Criar Conta</a>
+          </li>
+        <% } %>
+
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
